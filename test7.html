@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>条件渲染</title>
+</head>
+<body>
+<div id="app">
+  <!--vue是高效复用的，input还是2个input，当时输入缓存还在,为了区别开，用关键字key-->
+  <div v-if="show">
+    邮箱名：<input key="username"/>
+  </div>
+
+  <div v-else>
+    用户名：<input key="password"/>
+  </div>
+  <!--<div v-show="show">{{message}}</div>-->
+</div>
+
+
+<script>
+  var vm=new Vue({
+    el:"#app",
+    data:{
+      show:'true',
+      message:"hello world",
+      mes:"nice to meet you"
+    }
+  })
+</script>
+</body>
+</html>

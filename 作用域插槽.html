@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>slot</title>
+</head>
+<body>
+<!--子组件向父组件的插槽传递数据，父组件负责显示  插槽的话个人理解就是在父组件中引用子组件的同时，可以对子组件的一些内容进行修改或者补充-->
+<div id="root">
+ <child>
+   <template slot-scope="props">
+     <p>{{props.item}}</p>
+   </template>
+ </child>
+</div>
+
+<script>
+  Vue.component('child',{
+    data :function(){
+      return {
+        list:[1,2,3,4]
+      }
+    },
+    template:`<div>
+    <ul>
+    <slot v-for="item of list" :item=item></slot>
+    </ul>
+    </div>`
+  })
+
+  var vm=new Vue({
+    el:"#root"
+  })
+
+</script>
+
+</body>
+</html>

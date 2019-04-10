@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Title</title>
+</head>
+<body>
+<!--v-once可以提高页面动态展示的性能-->
+<div id="root">
+  <child-one v-if="type==='child-one'"></child-one>
+  <child-two v-if="type==='child-two'"></child-two>
+  <button @click="handleBtnClick">change</button>
+
+</div>
+
+<script>
+  Vue.component('child-one',{
+    template:'<div v-once>child-one</div>'
+  })
+  Vue.component('child-two',{
+    template:'<div v-once>child-two</div>'
+  })
+  var vm=new Vue({
+    el:"#root",
+    data:{
+      type:"child-one"
+    },
+    methods:{
+      handleBtnClick :function(){
+        this.type=(this.type==="child-one" ? "child-two" :"child-one");
+      }
+    }
+  })
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="./velocity.js"></script>
+    <title>Title</title>
+</head>
+<body>
+<div id="root">
+  <transition name="fade"
+     @before-enter="handleBeforeEnter"
+     @enter="handleEnter"
+     @after-leave="handleAfterLeave"
+
+  >
+  <div v-if="show">hello kugou</div>
+  </transition>
+  <button @click="handleClick">toggle</button>
+</div>
+
+<script>
+  var vm=new Vue({
+    el:"#root",
+    data: {
+      show:true
+    },
+    methods:{
+      handleClick: function(){
+        this.show=! this.show;
+      },
+      handleBeforeEnter :function(el){
+        el.style.opacity=0
+      },
+      handleEnter: function(el,done){
+//        done  回调函数-告诉
+//        setTimeout(() => {
+//          el.style.color='green'
+//        },2000);
+//        setTimeout(() => {
+//          done()
+//        },2000)
+
+        Velocity(el,{opacity:1},{duration:1000,complete:done})
+
+        },
+      handleAfterLeave: function(el){
+
+//        el.style.color='#000'
+        console.log('动画结束');
+      }
+
+    }
+
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>vue中的列表渲染</title>
+</head>
+<body>
+   <div id="app">
+     <!--<div v-for="(item,index) of list">{{item.text}}&#45;&#45;&#45;&#45;{{index}}-->
+     <!--</div>-->
+     <div v-for="(item,index) of userinfo">{{item}}</div>
+   </div>
+
+<script>
+  //pop push shift unshfit splice sort
+  var vm=new Vue({
+    el:"#app",
+    data:{
+//      list:[
+//        {
+//          id:"001",
+//          text:"hello"
+//        },
+//        {
+//          id:"002",
+//          text:"taylor"
+//        },
+//        {
+//          id:"003",
+//          text:"swift"
+//        }
+//      ]
+      userinfo:[1,2,3,4]
+    }
+  })
+</script>
+
+</body>
+</html>

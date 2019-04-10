@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Title</title>
+  <style>
+    /*.v-enter,.v-leave-to{opacity: 0;}*/
+    /*.v-enter-active,.v-leave-active{transition: opacity 1s;}*/
+  </style>
+</head>
+<body>
+
+<div id="root">
+
+  <fade :show="show">
+    <div v-show="show">hello</div>
+  </fade>
+  <fade :show="show">
+    <div v-show="show">world</div>
+  </fade>
+
+  <button @click="hnadleClick">toggle</button>
+</div>
+
+<script>
+  Vue.component('fade',{
+    props:['show'],
+    template:`
+    <transition @beforeEnter="handleBeforeEnter" @enter="handleEnter">
+    <slot v-if="show"></slot>
+    </transition>
+    `,
+    methods:{
+      handleBeforeEnter:function(el){
+        el.style.color='red'
+      },
+      handleEnter: function(el,done){
+        setTimeout(()=>{
+          el.style.color='green';
+          done();
+
+        },2000)
+      }
+    }
+  })
+
+  var vm=new Vue({
+    el:"#root",
+    data:{
+
+      show:false
+    },
+    methods:{
+      hnadleClick: function(){
+        this.show=! this.show;
+      },
+
+    }
+
+  })
+</script>
+</body>
+</html>

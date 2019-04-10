@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <p v-if="seen" :style="[firstStyle,secondStyle]" @click="handleClick">现在你看到我了</p>
+  <input v-model="message">
+</div>
+
+
+<script>
+  var app=new Vue({
+    el:"#app",
+   data:{
+     seen:true,
+     message:"hello world",
+     firstStyle:{
+       color:'green',
+       fontSize:'20px'
+     },
+     secondStyle:{
+       fontWeight:"600"
+     },
+   },
+    methods:{
+      handleClick:function(){
+        alert("how are you")
+      }
+    }
+  })
+</script>
+</body>
+</html>

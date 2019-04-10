@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="animate.css">
+    <title></title>
+  <style>
+    @keyframes bounce-in {
+    0%{
+      transform: scale(0);
+    }
+      50%{
+        transform: scale(1.5);
+      }
+      100%{
+          transform: scale(1);
+        }
+    }
+    .fade-enter-active,.fade-leave-active{transition: opacity 3s;}
+  </style>
+</head>
+<body>
+
+<div id="root">
+  <transition name="fade"
+              duration="5000"
+              appear
+              enter-active-class="animated swing fade-enter-active"
+              leave-active-class="animated shake fade-leave-active"
+              appear-active-class="animated swing"
+  >
+  <div v-if="show">你现在看到我了！</div>
+  </transition>
+  <button @click="handleBtnClick">切换</button>
+</div>
+
+<script>
+
+
+
+  var vm=new Vue({
+    el:"#root",
+    data:{
+      show:true
+    },
+    methods:{
+      handleBtnClick: function(){
+        this.show=! this.show;
+      }
+    }
+  })
+</script>
+</body>
+</html>

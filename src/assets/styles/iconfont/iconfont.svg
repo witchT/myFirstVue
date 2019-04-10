@@ -1,0 +1,35 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
+<!--
+2013-9-30: Created.
+-->
+<svg>
+<metadata>
+Created by iconfont
+</metadata>
+<defs>
+
+<font id="iconfont" horiz-adv-x="1024" >
+  <font-face
+    font-family="iconfont"
+    font-weight="500"
+    font-stretch="normal"
+    units-per-em="1024"
+    ascent="896"
+    descent="-128"
+  />
+    <missing-glyph />
+    
+    <glyph glyph-name="jiantouarrow486" unicode="&#59050;" d="M171.15136 554.99776l684.02176 0-342.016-341.99552L171.15136 554.99776z"  horiz-adv-x="1024" />
+
+    
+    <glyph glyph-name="jiantou4" unicode="&#58886;" d="M256 384l512-512 0 135.776-376.224 376.224 376.224 376.256 0 135.745z"  horiz-adv-x="1024" />
+
+    
+    <glyph glyph-name="sousuo" unicode="&#58913;" d="M512 88.064a287.232 287.232 0 1 0 202.752 490.496A287.232 287.232 0 0 0 512 88.064z m0 512a226.048 226.048 0 1 1 159.744-66.304A224.512 224.512 0 0 1 512 601.344zM804.864 51.2a30.72 30.72 0 0 0-21.76 8.96l-104.192 104.192a30.72 30.72 0 1 0 43.52 43.52l104.192-104.192a30.72 30.72 0 0 0-21.76-51.2z"  horiz-adv-x="1024" />
+
+    
+
+
+  </font>
+</defs></svg>

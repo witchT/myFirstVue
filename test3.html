@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>vue模板语法</title>
+</head>
+<body>
+<div id="app">
+  <div>{{name + 'hhh'}}</div>
+  <div v-text="name + '屁'"></div>
+  <div v-html="name + '才怪'"></div>
+
+</div>
+
+
+<script>
+  var vm=new Vue({
+    el:"#app",
+    data:{
+      name:"<h1>你似人间的烟火</h1>"
+    }
+  })
+</script>
+</body>
+
+</html>

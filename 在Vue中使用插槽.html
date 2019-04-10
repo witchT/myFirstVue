@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>slot</title>
+</head>
+<body>
+<!--当子组件要显示父组件的一些内容时，用slot-->
+<div id="root">
+  <body-content>
+    <div class="header" slot="header">header</div>
+    <div class="footer" slot="footer">footer</div>
+  </body-content>
+</div>
+
+<script>
+  Vue.component('body-content',{
+    template:`<div>
+    <slot name="header"></slot>
+    <div class='content'>bodyContent</div>
+     <slot name="footer"></slot>
+    </div>`
+  })
+
+  var vm=new Vue({
+    el:"#root"
+  })
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Title</title>
+
+  <style>
+    .v-enter,.v-leave-to{opacity: 0;}
+    .v-enter-active,.v-leave-active{transition: opacity 1s;}
+
+  </style>
+</head>
+<body>
+
+<div id="root">
+  <transition mode="out-in">
+    <!--vue是高效复用的,为了区别开，用关键字key-->
+    <!--<div v-if="show" key="hello">你能看到我了</div>-->
+    <!--<div v-else key="bye">bye world</div>-->
+    <component :is="type"></component>
+  </transition>
+  <button @click="handleClick">toggle</button>
+</div>
+
+<script>
+  Vue.component('child',{
+    template:'<div>hello</div>'
+  })
+  Vue.component('child-one',{
+    template:'<div>world</div>'
+  })
+  var vm=new Vue({
+    el:"#root",
+    data:{
+      type:'child'
+    },
+    methods:{
+      handleClick: function(){
+        this.type=this.type==='child' ? 'child-one':'child';
+      }
+    }
+  })
+</script>
+</body>
+</html>
