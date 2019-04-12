@@ -1,12 +1,10 @@
 <template>
-  <div class="container">
+  <div class="container" @click='handleGallaryClick'>
     <div class="wrapper" :option='swiperOptions'>
       <swiper>
     <!-- slides -->
-    <swiper-slide><img class="gallary-img" src="//source.qunarzz.com/site/images/wns/20190328_qunar_dujia_homepage_2.jpg"/></swiper-slide>
-    <swiper-slide><img class="gallary-img" src="//source.qunarzz.com/site/images/wns/20190328_qunar_dujia_homepage_2.jpg"/></swiper-slide>
-    <swiper-slide><img class="gallary-img" src="//source.qunarzz.com/site/images/wns/20190328_qunar_dujia_homepage_2.jpg"/></swiper-slide>
-
+    <swiper-slide v-for="(item,index) in imgs" :key='index'><img class="gallary-img" :src='item'/></swiper-slide>
+  
     <!-- Optional controls -->
     <div class="swiper-pagination"  slot="pagination"></div>
   </swiper>
@@ -17,12 +15,27 @@
 <script>
 export default {
   name: 'CommonGallary',
+  props: {
+    imgs: {
+      type:Array,
+      default (){
+        return []
+      }
+    }
+  },
   data () {
     return {
       swiperOptions :{
       pagination:'.swiper-pagination',
-      paginationType: 'fraction'
+      paginationType: 'fraction',
+      observeParents:true,
+      observer:true
       }
+    }
+  },
+  methods :{
+    handleGallaryClick(){
+      this.$emit('close')
     }
   }
   
